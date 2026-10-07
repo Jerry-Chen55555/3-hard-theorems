@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HT1 - Intermediate Value Theorem</title>
+
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>HT1: Intermediate Value Theorem</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="ht1.html">HT1</a>
+        <a href="ht2.html">HT2</a>
+        <a href="ht3.html">HT3</a>
+    </nav>
+
+    <main>
+        <h2>Theorem</h2>
+
+        <p>
+            If f is continuous on [a,b] and f(a) < 0 < f(b), then there is a c in (a,b) such that f(c) = 0
+        </p>
+
+        <img src="ivt.jpg" alt="">
+
+        <h2>Proof</h2>
+
+        <button onclick="toggleProof()">Proof</button>
+
+        <div id="proof">
+            <p>Suppose f is continuous on [a,b] and f(a) < 0 < f(b)</p>
+            <p>Let S = {x in [a,b] | f(x) < 0}</p>
+            <p>S is non-empty because a is in S</p>
+            <p>It's bounded above because b is an upper bound, therefore S has a supremum; let c = sup(S)</p>
+            <p>We want to prove f(c)=0 so consider three scenarios: f(c)<0, f(c)>0, f(c)=0</p>
+            <p><strong>I: f(c) < 0</strong></p>
+            <p>Because f is continuous at x=c, there exists delta (call it d) such that |x-c| < d implies |f(x)-f(c)| < f(c)</p>
+            <p>Note |f(x)-f(c)| < f(c) implies f(c) < f(x) -f(c) < -f(c) which implies 2f(c) < f(x) < 0</p>
+            <p>If x = c + d/2, f(x) is negative to c is not an upper bound of S (contradiction)</p>
+            <p><strong>II: f(c) > 0</strong></p>
+            <p>Similar to before, there exists delta (call it d) such that |x-c| < d implies |f(x)-f(c)| > f(c)</p>
+            <p>But then c - d/2 is a smallr upper bound of S than c is, so c is not the supremum (contradiction II)</p>
+            <p>Therefore f(c) = 0</p>
+
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>wish me good luck on my <a href="https://www.britannica.com/dictionary/test" target="_blank">test</a> on this stuff</p>
+    </footer>
+
+    <script>
+        function toggleProof() {
+            const proof = document.getElementById("proof");
+
+            if (proof.style.display === "none") {
+                proof.style.display = "block";
+            } else {
+                proof.style.display = "none";
+            }
+        }
+
+        document.getElementById("proof").style.display = "none";
+    </script>
+
+</body>
+</html>

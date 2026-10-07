@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HT2 - Boundedness</title>
+
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>HT2: Boundedness</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="ht1.html">HT1</a>
+        <a href="ht2.html">HT2</a>
+        <a href="ht3.html">HT3</a>
+    </nav>
+
+    <main>
+        <h2>Theorem</h2>
+
+        <p>
+            If f is continuous on [a,b], then f is bounded on [a,b]. In other words, there exists an upper bound and lower bound for f on the interval [a,b]
+        </p>
+
+        <img src="boundedness.png" alt="">
+
+        <h2>Proof</h2>
+
+        <button onclick="toggleProof()">Proof</button>
+
+        <div id="proof">
+            <p>Suppose f is continuous on [a,b] and f(a) < 0 < f(b)</p>
+            <p>Let S = {x in [a,b] | f is bounded on [a,x]}</p>
+            <p>S is non-empty because a is in S</p>
+            <p>It's bounded above because b is an upper bound, therefore S has a supremum; let c = sup(S)</p>
+            <p>We want to prove c=b so consider two scenarios: c<b, c>b, c=b</p>
+            <p><strong>I: c < b</strong></p>
+            <p>Because f is continuous at x=c, there exists delta (call it d) such that |x-c| < d implies |f(x)-f(c)| < 1</p>
+            <p>Therefore f is bounded on (c-d, c+d) which means f is bounded on [a,c+d), so c is not the sup of S</p>
+            <p><strong>II: c > b</strong></p>
+            <p>Supremums must be at most the maximum of a set. The maximum of S is b</p>
+            <p>Therefore c = b, so f is bounded on [a,b]</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>wish me good luck on my <a href="https://www.britannica.com/dictionary/test" target="_blank">test</a> on this stuff</p>
+    </footer>
+
+    <script>
+        function toggleProof() {
+            const proof = document.getElementById("proof");
+
+            if (proof.style.display === "none") {
+                proof.style.display = "block";
+            } else {
+                proof.style.display = "none";
+            }
+        }
+
+        document.getElementById("proof").style.display = "none";
+    </script>
+
+</body>
+</html>
